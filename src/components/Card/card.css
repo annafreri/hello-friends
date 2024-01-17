@@ -1,0 +1,93 @@
+
+.container {
+    max-width: 95%;
+    margin: 32px;
+}
+
+
+
+.card {
+    flex: 1 0 calc(30% - 2 * 32px);
+    min-width: 300px;
+    border: 5px solid #000;
+    border-radius: 16px;
+    background: #FFF;
+}
+
+
+.card-top {
+    display: flex;
+    padding: 10px 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 5px solid #000; 
+}
+
+
+.card-face {
+    display: flex;
+    
+    margin: auto;
+    
+    padding-bottom: 0;
+    justify-content: center;
+    align-items: flex-end; /* Align items to the bottom */
+    width: 100%; /* Set the width of the .face container to 100% */
+}
+
+.face {
+    height: auto; /* Maintain the image's aspect ratio */
+    margin-top: 16px;
+    width: 90%;
+}
+
+.card-btm {
+    display: flex;
+    padding: 10px 16px;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    border-top: 5px solid #000;
+}
+
+
+p {
+    color: #000;
+    font-family: GT Maru Trial;
+    font-size: 25.6px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.temp {
+    color: #000;
+
+    font-family: GT Maru Trial;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+    margin: 0;
+}
+
+.header{
+    border: 5px solid #000;
+    border-radius: 16px;
+    background: #FFF;
+    
+    margin-bottom: 32px;
+}
+
+.header p {
+    color: #000;
+    padding-left: 24px;
+
+    font-family: GT Maru Trial;
+    font-size: 10vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -4px;
+}

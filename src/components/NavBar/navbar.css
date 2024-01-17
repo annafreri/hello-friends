@@ -1,0 +1,19 @@
+.navbar{
+    border: 5px solid #000;
+    border-radius: 16px;
+    background: #FFF;
+    
+    margin-bottom: 32px;
+}
+
+.navbar p {
+    color: #000;
+    padding-left: 24px;
+
+    font-family: GT Maru Trial;
+    font-size: 10vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -4px;
+}
