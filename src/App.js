@@ -60,7 +60,6 @@ function App() {
 
           </div>
         </div>
-        <p>idfjajf</p>
     
     </div>
   );

@@ -4,8 +4,6 @@
     margin: 32px;
 }
 
-
-
 .card {
     flex: 1 0 calc(30% - 2 * 32px);
     min-width: 300px;
@@ -14,7 +12,6 @@
     background: #FFF;
 }
 
-
 .card-top {
     display: flex;
     padding: 10px 16px;
@@ -22,7 +19,6 @@
     align-items: flex-start;
     border-bottom: 5px solid #000; 
 }
-
 
 .card-face {
     display: flex;
@@ -53,8 +49,8 @@
 
 p {
     color: #000;
-    font-family: GT Maru Trial;
-    font-size: 25.6px;
+    font-family: 'Varela Round';
+        font-size: 25.6px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -64,10 +60,10 @@ p {
 .temp {
     color: #000;
 
-    font-family: GT Maru Trial;
+    font-family: 'Varela Round';
     font-size: 80px;
-    font-style: normal;
-    font-weight: 700;
+    font-style: bold;
+    font-weight: 900;
     line-height: 90%;
     margin: 0;
 }
@@ -84,8 +80,8 @@ p {
     color: #000;
     padding-left: 24px;
 
-    font-family: GT Maru Trial;
-    font-size: 10vw;
+    font-family: 'Varela Round';
+        font-size: 10vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

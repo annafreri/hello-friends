@@ -22,7 +22,7 @@ class Weather extends Component {
   fetchWeatherData = (city) => {
     // console.log(`Fetching weather data for ${city}...`);
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
