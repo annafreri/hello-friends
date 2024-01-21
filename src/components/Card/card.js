@@ -3,16 +3,27 @@ import './card.css'
 
 
 const Card = (props) => {
-    console.log("Card is rendered");
+
+   // Define the path to the clouds image
+//    const cloudsImagePath = '/assets/snow.svg';
+
+   // Define a variable for the background image based on the mainWeather prop
+//    const backgroundImage =
+//      props.mainWeather === 'Clear' ? `url(${cloudsImagePath})` : 'none';
+ 
+ 
     return(
-        <div className="card">
+        <div className="card" > 
+        
             <div className="card-top" >
                 <p>{props.location}</p>
                 <p>{props.time}</p>
+               
             </div>
         
             <div className="card-face">
-                <img className="face"  src={props.face}></img>
+                <img className="face" src={props.face}></img>
+                {/* <img className="face" src={props.mainWeather}></img> */}
             </div>
     
             <div className="card-btm" >
@@ -25,26 +36,6 @@ const Card = (props) => {
 }
 
 
-// const Card = () => {
-//     console.log("Card is rendered");
-//     return(
-//         <div className="card">
-//             <div className="card-top" >
-//                 <p>Athens, GR</p>
-//                 <p>18:00</p>
-//             </div>
-        
-//             <div className="card-face">
-//                 <img className="face"  src={clo}></img>
-//             </div>
-    
-//             <div className="card-btm" >
-//                 <p className="temp">9°C</p>
-//             </div>
-        
-//          </div>
 
-//     )
-// }
 
 export default Card
