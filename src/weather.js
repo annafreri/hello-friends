@@ -52,12 +52,11 @@ class Weather extends Component {
     // }
 
     return (
-      [<div>
+      <div className="tempcondition">
         {/* {weatherData.name} */}
-        {parseInt(weatherData.main.temp)}°C
-        {weatherData.weather.length > 0 && weatherData.weather[0].main}
-      </div>,
-      ]
+        <div>{parseInt(weatherData.main.temp)}°C</div>
+        <div>{weatherData.weather.length > 0 && weatherData.weather[0].main}</div>
+      </div>
     );
   }
 }
