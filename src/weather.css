@@ -1,0 +1,89 @@
+
+.container {
+    max-width: 95%;
+    margin: 32px;
+}
+
+.card {
+    flex: 1 0 calc(30% - 2 * 32px);
+    min-width: 300px;
+    border: 5px solid #000;
+    border-radius: 16px;
+    background: #FFF;
+}
+
+.card-top {
+    display: flex;
+    padding: 10px 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 5px solid #000; 
+}
+
+
+
+.card-face {
+    display: flex;
+    
+    margin: auto;
+    
+    padding-bottom: 0;
+    justify-content: center;
+    align-items: flex-end; /* Align items to the bottom */
+    width: 100%; /* Set the width of the .face container to 100% */
+}
+
+.face {
+    height: auto; /* Maintain the image's aspect ratio */
+    margin-top: 16px;
+    width: 90%;
+}
+
+.card-btm {
+    display: flex;
+    padding: 8px 8px;
+    margin-bottom: 0;
+    justify-content: center;
+    border-top: 5px solid #000;
+}
+
+.tempcondition {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    /* padding: 10px px; */
+    font-family: var(--main-font-family);
+    font-size: 3vw;
+    font-style: bold;
+    font-weight: 900;
+    line-height: 90%;
+    /* margin: 16px; */
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .tempcondition {
+      font-size: 6vw;
+    }
+  } 
+
+.header{
+    border: 5px solid #000;
+    border-radius: 16px;
+    background: #FFF;
+    
+    margin-bottom: 32px;
+}
+
+.header p {
+    color: #000;
+    padding-left: 24px;
+
+    font-family: var(--main-font-family);
+    font-size: 10vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

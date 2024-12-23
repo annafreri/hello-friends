@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './weather.css'
 
 const API_KEY = '2a74ce297a2e9df0b63fc72e907ac8ec';
 
@@ -7,23 +8,18 @@ class Weather extends Component {
   state = {
     weatherData: ""
   };
-  
 
   componentDidMount() {
-    // Fetch weather data for the specified city when the component mounts
     this.fetchWeatherData(this.props.city);
-    // this.fetchWeatherData(this.props.mainWeather);
   }
 
   componentDidUpdate(prevProps) {
-    // Fetch new weather data if the city prop has changed
     if (prevProps.city !== this.props.city) {
       this.fetchWeatherData(this.props.city);
     }
   }
 
   fetchWeatherData = (city) => {
-    // console.log(`Fetching weather data for ${city}...`);
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     )
@@ -34,41 +30,70 @@ class Weather extends Component {
         });
       })
       .catch((error) => {
-        // console.error(`Error fetching weather data for ${city}:`, error);
+        console.error(`Error fetching weather data for ${city}:`, error);
       });
   };
 
-  render() {
-    // console.log("Rendering component", this.state.weatherData);
+  getWeatherFace = () => {
+    const { weatherData } = this.state;
+    const { face } = this.props;
 
+    if (weatherData.weather.length > 0) {
+      const mainWeather = weatherData.weather[0].main;
+
+      // Customize face image based on main weather condition
+      if (mainWeather === 'Clouds') {
+        return `${face}_clouds.svg`;
+      } else if (mainWeather === 'Rain'){
+        return `${face}_rain.svg`;
+      } else if (mainWeather === 'Snow'){
+        return `${face}_snow.svg`;
+      } else if (mainWeather === 'Drizzle'){
+        return `${face}_drizzle.svg`;
+      } else {
+        // Default face image if no specific condition
+        return `${face}.svg`;
+      }
+    }
+
+    // Default face image if weather data is not available
+    return `${face}.svg`;
+  };
+
+  render() {
     const { weatherData } = this.state;
 
     if (!weatherData || !weatherData.main) {
-      return <div>Loading...</div>; // or any other loading indicator
+      return <div>Loading...</div>;
     }
-    
-    // if(weatherData.weather.length > 0 && weatherData.weather[0].main =="Clouds" ){
-    //   return true;
-    // }
 
     return (
-      <div className="tempcondition">
-        {/* {weatherData.name} */}
-        <div>{parseInt(weatherData.main.temp)}°C</div>
-        <div>{weatherData.weather.length > 0 && weatherData.weather[0].main}</div>
+      <div className="card">
+        <div className="card-top">
+              <p>{this.props.location}</p>
+              <p>{this.props.time}</p>
+        </div>
+        <div className="card-face">
+          {/* Use weatherData.main.temp to display temperature */}
+          <img
+            className="face"
+            // src={weatherData.weather.length > 0 && weatherData.weather[0].main === 'drizzle' ? {this.props.face} : {tasos}}
+            // src = {this.props.face}
+            // src={`assets/${this.props.face}.svg`}
+            // src = "assets/clo.svg"  ---- works now
+            src={`assets/${this.getWeatherFace()}`}
+            alt="Weather Icon"
+          />
+        </div>
+        <div className="card-btm">
+          <p className="tempcondition">{parseInt(weatherData.main.temp)}°C</p>
+          <p className="tempcondition">{weatherData.weather.length > 0 && weatherData.weather[0].main}</p>
+                    {/* <p className="tempcondition">Thundestorm</p> */}
+
+        </div>
       </div>
     );
   }
 }
 
 export default Weather;
-
-
-//example of json
-// {"coord":{"lon":8.9821,"lat":45.8674},
-// "weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],
-// "base":"stations",
-// "main":{"temp":4.75,"feels_like":4.75,"temp_min":2.35,"temp_max":6.65,"pressure":1034,"humidity":40},"visibility":10000,
-// "wind":{"speed":0.51,"deg":0},"clouds":{"all":0},"dt":1705835157,
-// "sys":{"type":1,"id":6936,"country":"CH","sunrise":1705820270,"sunset":1705853529},
-// "timezone":3600,"id":2659689,"name":"Mendrisio","cod":200}
