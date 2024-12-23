@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import './weather.css'
+import "./weather.css";
 
-const API_KEY = '2a74ce297a2e9df0b63fc72e907ac8ec';
+const API_KEY = "2a74ce297a2e9df0b63fc72e907ac8ec";
 
 class Weather extends Component {
-  
   state = {
-    weatherData: ""
+    weatherData: "",
   };
 
   componentDidMount() {
@@ -26,7 +25,7 @@ class Weather extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          weatherData: data
+          weatherData: data,
         });
       })
       .catch((error) => {
@@ -42,13 +41,13 @@ class Weather extends Component {
       const mainWeather = weatherData.weather[0].main;
 
       // Customize face image based on main weather condition
-      if (mainWeather === 'Clouds') {
+      if (mainWeather === "Clouds") {
         return `${face}_clouds.svg`;
-      } else if (mainWeather === 'Rain'){
+      } else if (mainWeather === "Rain") {
         return `${face}_rain.svg`;
-      } else if (mainWeather === 'Snow'){
+      } else if (mainWeather === "Snow") {
         return `${face}_snow.svg`;
-      } else if (mainWeather === 'Drizzle'){
+      } else if (mainWeather === "Drizzle") {
         return `${face}_drizzle.svg`;
       } else {
         // Default face image if no specific condition
@@ -70,26 +69,21 @@ class Weather extends Component {
     return (
       <div className="card">
         <div className="card-top">
-              <p>{this.props.location}</p>
-              <p>{this.props.time}</p>
+          <p>{this.props.location}</p>
+          <p>{this.props.time}</p>
         </div>
         <div className="card-face">
-          {/* Use weatherData.main.temp to display temperature */}
           <img
             className="face"
-            // src={weatherData.weather.length > 0 && weatherData.weather[0].main === 'drizzle' ? {this.props.face} : {tasos}}
-            // src = {this.props.face}
-            // src={`assets/${this.props.face}.svg`}
-            // src = "assets/clo.svg"  ---- works now
             src={`assets/${this.getWeatherFace()}`}
             alt="Weather Icon"
           />
         </div>
         <div className="card-btm">
           <p className="tempcondition">{parseInt(weatherData.main.temp)}°C</p>
-          <p className="tempcondition">{weatherData.weather.length > 0 && weatherData.weather[0].main}</p>
-                    {/* <p className="tempcondition">Thundestorm</p> */}
-
+          <p className="tempcondition">
+            {weatherData.weather.length > 0 && weatherData.weather[0].main}
+          </p>
         </div>
       </div>
     );

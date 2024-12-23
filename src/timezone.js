@@ -20,28 +20,21 @@ class TimezoneClock extends Component {
     const { timezone } = this.props;
     const currentTime = new Date().toLocaleTimeString("en-US", {
       timeZone: timezone,
-      hour: '2-digit',
-      minute: '2-digit',
+      hour: "2-digit",
+      minute: "2-digit",
     });
-  
+
     this.setState({
       currentTime,
     });
   }
-  
 
   render() {
     const { currentTime } = this.state;
     // console.log(this.props.timezone);
     // console.log(currentTime);
-  
-    return (
-      <div>
-        {/* <h2>Current Time ({this.props.timezone}): {currentTime}</h2> */}
-        {/* {this.props.timezone} */}
-        {currentTime.toString()}
-      </div>
-    );
+
+    return <div>{currentTime.toString()}</div>;
   }
 }
 

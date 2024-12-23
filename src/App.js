@@ -5,14 +5,6 @@ import Weather from "./weather";
 import TimezoneClock from "./timezone";
 // import Loader from './components/Loader/loader';
 import React, { useState, useEffect } from "react";
-// import { Helmet } from 'react-helmet';
-
-// import clo from '../src/assets/clo.svg';
-// import tasos from '../src/assets/tasos.svg';
-// import anna from '../src/assets/anna.svg';
-// import ntina from '../src/assets/ntina.svg';
-// import hro from '../src/assets/hro.svg';
-// import vana from '../src/assets/vana.svg';
 
 function App() {
   return (
